@@ -1,9 +1,9 @@
-package services;
+package api.services;
 
 
+import api.models.Credentials;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import models.Credentials;
 
 import static io.restassured.RestAssured.given;
 
