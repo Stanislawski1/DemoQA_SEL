@@ -1,7 +1,10 @@
 package ui.pages.BookStore;
 
+import elements.Elements;
+import elements.base.BaseElements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -16,14 +19,17 @@ public class BookStorePage extends BasePage {
     }
 
     public BookStorePage isPageOpened() {
+        logger.info("Checking if Book Store page is opened");
         waitForPageLoaded();
         return this;
     }
 
-    public BookStorePage useSearch(String text) {
+    public BookStorePage useSearchNCheck(String text) {
+        logger.info("Using search and checking result");
         wait.until(ExpectedConditions.visibilityOfElementLocated(SEARCH_INPUT));
         driver.findElement(SEARCH_INPUT).sendKeys("Programming JavaScript Applications");
-        Assert.assertTrue(driver.findElement(By.xpath("//a[contains(text(), '" + text + "')]")).isDisplayed(), "No results found for search");
+        Elements.getSearchResultByText(text);
+        logger.info("Search result found");
         return this;
     }
 }

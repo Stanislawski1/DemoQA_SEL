@@ -13,6 +13,7 @@ public class BaseElements {
     protected final By locator;
     protected final int timeoutInSeconds = 10;
 
+
     public BaseElements(WebDriver driver, By locator) {
         this.driver = driver;
         this.locator = locator;

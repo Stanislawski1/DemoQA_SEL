@@ -6,12 +6,12 @@ import tests.base.BaseTest;
 
 public class BookStoreTest extends BaseTest {
 
-    @Test
+    @Test(description = "Проверка страницы Book Store")
     public void testOfBookStore() {
         pageManager.getLoginPage().open()
                 .loginWithCredentials("admin6", "Password123!")
-                .isLoginSuccessful()
+                .checkLoginSuccessful()
                 .moveToBookStore()
-                .useSearch("Programming JavaScript Applications");
+                .useSearchNCheck("Programming JavaScript Applications");
     }
 }

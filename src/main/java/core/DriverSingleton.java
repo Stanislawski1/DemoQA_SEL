@@ -1,12 +1,11 @@
 package core;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverSingleton {
-    private static WebDriver driver;
+    public static WebDriver driver;
 
     private DriverSingleton() {
 
@@ -16,18 +15,15 @@ public class DriverSingleton {
         if (driver == null) {
             switch (browser.toLowerCase()) {
                 case "chrome":
-                    driver = new ChromeDriver();
-                    break;
-                case "firefox":
-                    driver = new FirefoxDriver();
-                    break;
-                case "edge":
-                    driver = new EdgeDriver();
+                    org.openqa.selenium.chrome.ChromeOptions options = new org.openqa.selenium.chrome.ChromeOptions();
+                    options.addArguments("--disable-popup-blocking");
+
+                    driver = new ChromeDriver(options);
                     break;
                 default:
-                    throw new IllegalArgumentException("Unsupported browser: " + browser);
+                    driver = new ChromeDriver();
             }
-            driver.manage().window().maximize();
+            driver.manage().window().setSize(new Dimension(1920, 1080));
         }
         return driver;
     }
