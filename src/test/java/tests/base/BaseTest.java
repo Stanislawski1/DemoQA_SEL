@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
+import tests.steps.ElementsSteps;
 import utils.TestListener;
 
 
@@ -18,8 +19,8 @@ public abstract class BaseTest {
     Logger logger = LoggerFactory.getLogger(BaseTest.class);
 
     protected WebDriver driver;
+    protected ElementsSteps elementsSteps;
     protected PageManager pageManager;
-
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -29,7 +30,7 @@ public abstract class BaseTest {
         driver = DriverSingleton.getDriver(browser);
 
         pageManager = new PageManager(driver);
-
+        elementsSteps = new ElementsSteps(driver);
         context.setAttribute("driver", driver);
     }
 

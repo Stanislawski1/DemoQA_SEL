@@ -17,6 +17,7 @@ public class DriverSingleton {
                 case "chrome":
                     org.openqa.selenium.chrome.ChromeOptions options = new org.openqa.selenium.chrome.ChromeOptions();
                     options.addArguments("--disable-popup-blocking");
+                    options.addArguments("--headless");
 
                     driver = new ChromeDriver(options);
                     break;

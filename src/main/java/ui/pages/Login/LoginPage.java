@@ -1,6 +1,6 @@
 package ui.pages.Login;
 
-import core.DatabaseManager;
+import database.DatabaseManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -39,8 +39,6 @@ public class LoginPage extends BasePage {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
-//        getInvalidLoginMessage().scrollIntoView();
-//        Assert.assertTrue(Elements.getInvalidLoginMessage().isDisplayed());
         return this;
     }
 

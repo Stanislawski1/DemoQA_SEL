@@ -1,4 +1,4 @@
-package core;
+package database;
 
 import config.DbConfig;
 import org.aeonbits.owner.ConfigFactory;

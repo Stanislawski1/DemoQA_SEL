@@ -6,6 +6,7 @@
     <test name="UI Tests">
         <classes>
             <class name="tests.UI.LoginTest"/>
+            <class name="tests.UI.ElementsTest"/>
         </classes>
     </test>
 </suite>

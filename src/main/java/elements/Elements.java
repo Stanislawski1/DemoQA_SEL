@@ -28,4 +28,27 @@ public class Elements {
         String xpath = "//p[contains(text(), 'Invalid username or password!')]";
         return driver.findElement(By.xpath(xpath));
     }
+
+    // Elements Page
+    public static final By ELEMENTS_TITLE = By.xpath("//div[@class='header-wrapper']//div[contains(text(), 'Elements')]");
+    public static final By TEXT_BOX_BUTTON = By.xpath("//span[contains(text(),'Text Box')]");
+    public static final By SUBMIT_BUTTON = By.xpath("//button[@id='submit']");
+    public static final By SUCCESS_MESSAGE = By.xpath("//div[@class='border col-md-12 col-sm-12']");
+    public static final By SHOW_ALL_BUTTON = By.xpath("//button[@title='Toggle']");
+    public static final By CHECKBOX_BUTTON = By.xpath("//span[contains(text(), 'Check Box')]");
+    public static final By RADIO_BUTTON_SECTION = By.xpath("//span[contains(text(),'Radio Button')]");
+    public static final By WEB_TABLES_BUTTON = By.xpath("//span[contains(text(), 'Web Tables')]");
+    public static final By FORM_PAGE_BUTTON = By.xpath("//div[@class='header-wrapper']//div[contains(text(), 'Forms')]");
+    public static final By FORM_TITLE = By.xpath("//h5[contains(text(), 'Student Registration Form')]");
+    public static final By COMPLETE_FORM_MESSAGE = By.xpath("//div[contains(text(), 'Thanks for submitting the form')]");
+    public static final By SUBMIT_FORM_BUTTON = By.xpath("//button[@type='submit']");
+    public static final By SUCCESS_FORM_MESSAGE = By.xpath("//div[contains(text(), 'Thanks for submitting the form')]");
+    public static final By BUTTONS = By.xpath("//span[contains(text(),'Buttons')]");
+    public static final By LINKS = By.xpath("//span[contains(text(),'Links')]");
+    public static final By PRACTICE_FORM = By.xpath("//span[contains(text(),'Practice Form')]");
+
+    //Main Page locators
+    public static final By TITLE = By.xpath("//div[@class='card-body']//h5[contains(text(), 'Elements')]");
+    public static final By ELEMENTS_BUTTON = By.xpath("//div[@class='card-body']//h5[contains(text(), 'Elements')]");
+
 }

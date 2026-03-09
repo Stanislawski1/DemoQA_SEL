@@ -19,11 +19,9 @@ public class LoginTest extends BaseTest {
                 .checkLoginSuccessful();
     }
 
-
     @Test(description = "Авторизация пользователя из базы данных")
     public void loginFromDatabase() {
         pageManager.getLoginPage().open()
                 .loginFromDatabase();
     }
-
 }
