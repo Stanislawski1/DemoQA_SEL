@@ -13,14 +13,14 @@ public class ElementsTest extends BaseTest {
         FormData form = FormFactory.getTextBox();
         elementsSteps.goToElements();
         pageManager.getElementsPage().isPageOpened()
-                .useTextBox(form);
+                .useNCheckTextBox(form);
     }
 
     @Test(description = "Testing Radio Button")
     public void testOfRadioButton() {
         elementsSteps.goToElements();
         pageManager.getElementsPage().isPageOpened()
-                .useRadioButton();
+                .useNCheckRadioButton();
     }
 
     @Test(description = "Testing Web Tables")
@@ -28,21 +28,21 @@ public class ElementsTest extends BaseTest {
         FormData form = FormFactory.getWebPages();
         elementsSteps.goToElements();
         pageManager.getElementsPage().isPageOpened()
-                .useWebTables(form);
+                .useNCheckWebTables(form);
     }
 
     @Test(description = "Testing Buttons")
     public void testOfButtons() {
         elementsSteps.goToElements();
         pageManager.getElementsPage().isPageOpened()
-                .useButtons();
+                .useNCheckButtons();
     }
 
     @Test(description = "Testing Links", dataProvider = "navigationData", dataProviderClass = NavigationData.class)
     public void testOfLinks(String linkText, String expectedUrlPart) {
         elementsSteps.goToElements();
         pageManager.getElementsPage().isPageOpened()
-                .useLinks(linkText, expectedUrlPart);
+                .useNCheckLinks(linkText, expectedUrlPart);
 
     }
 
@@ -50,7 +50,7 @@ public class ElementsTest extends BaseTest {
     public void testOfResponse(String linkText, String expectedStatus) {
         elementsSteps.goToElements();
         pageManager.getElementsPage().isPageOpened()
-                .useResponse(linkText, expectedStatus);
+                .useNCheckResponse(linkText, expectedStatus);
 
     }
 }

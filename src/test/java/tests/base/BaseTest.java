@@ -11,6 +11,7 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import tests.steps.ElementsSteps;
 import utils.TestListener;
+import utils.property.PropertyConfig;
 
 
 @Listeners({TestListener.class})
@@ -22,10 +23,12 @@ public abstract class BaseTest {
     protected ElementsSteps elementsSteps;
     protected PageManager pageManager;
 
-    @Parameters({"browser"})
     @BeforeMethod
-    public void setup(@Optional("chrome") String browser, ITestContext context) {
-        logger.info("Setting up test with browser {}", browser);
+    public void setup(@Optional String xmlBrowser, ITestContext context) {
+        String browser = (xmlBrowser != null) ? xmlBrowser : PropertyConfig.getBrowser();
+        if (browser == null) browser = "chrome";
+
+        logger.info("Starting tests on browser: {}", browser);
 
         driver = DriverSingleton.getDriver(browser);
 
@@ -34,9 +37,9 @@ public abstract class BaseTest {
         context.setAttribute("driver", driver);
     }
 
-    @AfterSuite
-    public void afterSuite() {
-        logger.info("Quitting driver");
+    @AfterMethod
+    public void tearDown() {
+        logger.info("Quitting driver after method");
         DriverSingleton.quitDriver();
     }
 }

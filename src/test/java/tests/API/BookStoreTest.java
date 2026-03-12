@@ -11,15 +11,13 @@ public class BookStoreTest extends BaseApiTest {
     public void testGetBooks() {
         Response response = bookStoreService.getBooks();
         Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertTrue(response.jsonPath().getList("books").size() > 0);
+        Assert.assertFalse(response.jsonPath().getList("books").isEmpty());
     }
 
     @Test(description = "Добавление книги в коллекцию")
     public void testAddBook() {
         String isbn = bookStoreService.getBooks().jsonPath().getString("books[0].isbn");
-
         bookStoreService.deleteAllBooks(userId, token);
-
         Response response = bookStoreService.addBook(userId, isbn, token);
         Assert.assertEquals(response.getStatusCode(), 201);
     }

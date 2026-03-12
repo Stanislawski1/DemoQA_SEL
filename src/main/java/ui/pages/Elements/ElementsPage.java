@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
-import ui.BasePage;
+import ui.pages.base.BasePage;
 import wrappers.*;
 
 import static elements.Elements.*;
@@ -28,7 +28,7 @@ public class ElementsPage extends BasePage {
         return this;
     }
 
-    public ElementsPage useTextBox(FormData form) {
+    public ElementsPage useNCheckTextBox(FormData form) {
         logger.info("Using Text Box");
         org.openqa.selenium.WebElement el = driver.findElement(TEXT_BOX_BUTTON);
         ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
@@ -42,7 +42,7 @@ public class ElementsPage extends BasePage {
         return this;
     }
 
-    public ElementsPage useRadioButton() {
+    public ElementsPage useNCheckRadioButton() {
         logger.info("Using RadioButton");
         driver.findElement(RADIO_BUTTON_SECTION).click();
         new RadioButton(driver, "Impressive").select();
@@ -51,7 +51,7 @@ public class ElementsPage extends BasePage {
         return this;
     }
 
-    public ElementsPage useWebTables(FormData form) {
+    public ElementsPage useNCheckWebTables(FormData form) {
         Faker faker = new Faker();
         String firstName = faker.name().firstName();
         logger.info("Using Web Tables");
@@ -66,7 +66,7 @@ public class ElementsPage extends BasePage {
         return this;
     }
 
-    public ElementsPage useButtons() {
+    public ElementsPage useNCheckButtons() {
         logger.info("Using Buttons");
         driver.findElement(BUTTONS).click();
         SoftAssert softAssert = new SoftAssert();
@@ -83,9 +83,9 @@ public class ElementsPage extends BasePage {
         return this;
     }
 
-    public ElementsPage useLinks(String linkText, String expectedUrlPart) {
+    public ElementsPage useNCheckLinks(String linkText, String expectedUrlPart) {
         logger.info("Using Links");
-        driver.findElement(By.xpath("//span[contains(text(),'Links')]")).click();
+        driver.findElement(LINKS_BUTTON).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(linkText)));
         driver.findElement(By.xpath(linkText)).click();
         wait.until(ExpectedConditions.urlContains(expectedUrlPart));
@@ -93,7 +93,7 @@ public class ElementsPage extends BasePage {
         return this;
     }
 
-    public ElementsPage useResponse(String linkText, String expectedStatus) {
+    public ElementsPage useNCheckResponse(String linkText, String expectedStatus) {
         logger.info("Using Response");
         wait.until(ExpectedConditions.visibilityOfElementLocated(LINKS));
         driver.findElement(LINKS).click();

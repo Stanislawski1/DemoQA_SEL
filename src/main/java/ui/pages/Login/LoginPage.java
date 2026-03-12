@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import ui.BasePage;
+import ui.pages.base.BasePage;
 import ui.pages.BookStore.BookStorePage;
 import wrappers.Buttons;
 
@@ -53,7 +53,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage checkLoginSuccessful() {
         logger.info("Checking login successful");
-        Assert.assertTrue(driver.findElement(By.xpath("//span[contains(text(), 'Profile')]")).isDisplayed(), "Login was not successful");
+        Assert.assertTrue(driver.findElement(PROFILE_LINK).isDisplayed(), "Login was not successful");
         return this;
     }
 

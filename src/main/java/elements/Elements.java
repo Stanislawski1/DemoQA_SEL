@@ -12,6 +12,7 @@ public class Elements {
     public static final By USERNAME_INPUT = By.id("userName");
     public static final By PASSWORD_INPUT = By.id("password");
     public static final By LOGIN_BUTTON = By.id("login");
+    public static final By PROFILE_LINK = By.xpath("//span[contains(text(), 'Profile')]");
 
     public static void getSearchResultByText(String text) {
         String xpath = String.format("//a[contains(text(), '%s')]", text);
@@ -32,6 +33,7 @@ public class Elements {
     // Elements Page
     public static final By ELEMENTS_TITLE = By.xpath("//div[@class='header-wrapper']//div[contains(text(), 'Elements')]");
     public static final By TEXT_BOX_BUTTON = By.xpath("//span[contains(text(),'Text Box')]");
+    public static final By LINKS_BUTTON = By.xpath("//span[contains(text(),'Links')]");
     public static final By SUBMIT_BUTTON = By.xpath("//button[@id='submit']");
     public static final By SUCCESS_MESSAGE = By.xpath("//div[@class='border col-md-12 col-sm-12']");
     public static final By SHOW_ALL_BUTTON = By.xpath("//button[@title='Toggle']");

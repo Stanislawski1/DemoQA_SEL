@@ -1,14 +1,10 @@
 package ui.pages.BookStore;
 
 import elements.Elements;
-import elements.base.BaseElements;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
-import ui.BasePage;
+import ui.pages.base.BasePage;
 import static elements.Elements.*;
 
 public class BookStorePage extends BasePage {
