@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://www.w3.org/2003/05/soap-envelope' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:s='http://www.w3.org/2001/XMLSchema'>
+  <SOAP-ENV:Body><UploadTransactionResponse xmlns="https://www.shafafiya.org/v2/"><UploadTransactionResult>-2</UploadTransactionResult><errorMessage>E-claim transaction validation is failed with errors</errorMessage>Transaction,Type,RuleID,Object Name,HAAD Field,Field Value,Additional Reference,Error Text
+ClaimSubmission,ERROR,92,Transaction,Header,,,Sender ID 'TF001_Malaffi' is not in the allowed senders list for this e-claim transaction.
+ClaimSubmission,ERROR,295,Header,SenderID,TF001_Malaffi,,Should not be same as ReceiverID 'TF001_Malaffi'.
+</UploadTransactionResponse></SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

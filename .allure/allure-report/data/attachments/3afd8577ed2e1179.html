@@ -1,0 +1,39 @@
+<div>POST to https://afthibasvr001.internal.npsff.ae/csp/inbound/HIB.Inbound.BSUploadSOAP.cls</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+&lt;soap12:Envelope xmlns:soap12=&quot;http://www.w3.org/2003/05/soap-envelope&quot;&gt;
+  &lt;soap12:Body&gt;
+    &lt;UploadTransaction xmlns=&quot;https://www.shafafiya.org/v2/&quot;&gt;
+      &lt;login&gt;MalaffiPayertest&lt;/login&gt;
+      &lt;pwd&gt;Haad@2016&lt;/pwd&gt;
+      &lt;fileContent&gt;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PENsYWltLlN1Ym1pc3Npb24geG1sbnM6dG5zPSJodHRwOi8vd3d3LmhhYWQuYWUvRGF0YURpY3Rpb25hcnkvQ29tbW9uVHlwZXMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpub05hbWVzcGFjZVNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LmhhYWQuYWUvRGF0YURpY3Rpb25hcnkvQ29tbW9uVHlwZXMvQ2xhaW1TdWJtaXNzaW9uLnhzZCI+PEhlYWRlcj48U2VuZGVySUQ+TUY4MDUxPC9TZW5kZXJJRD48UmVjZWl2ZXJJRD5BODc3PC9SZWNlaXZlcklEPjxUcmFuc2FjdGlvbkRhdGU+MDkvMDMvMjAyNiAxMjo1NDwvVHJhbnNhY3Rpb25EYXRlPjxSZWNvcmRDb3VudD4xPC9SZWNvcmRDb3VudD48RGlzcG9zaXRpb25GbGFnPlBURV9TVUJNSVQ8L0Rpc3Bvc2l0aW9uRmxhZz48L0hlYWRlcj48Q2xhaW0+PElEPjQ0NDwvSUQ+PElEUGF5ZXI+OTcxOTA8L0lEUGF5ZXI+PE1lbWJlcklEPm04MjM2NjwvTWVtYmVySUQ+PFBheWVySUQ+QTM2NzwvUGF5ZXJJRD48UHJvdmlkZXJJRD5NRjg2OTI8L1Byb3ZpZGVySUQ+PEVtaXJhdGVzSUROdW1iZXI+MTExLTExMTEtMTExMTExMS0xPC9FbWlyYXRlc0lETnVtYmVyPjxHcm9zcz45MzYxPC9Hcm9zcz48UGF0aWVudFNoYXJlPjE2MjM8L1BhdGllbnRTaGFyZT48TmV0PjEzOTU8L05ldD48VkFUPjkxLjA5PC9WQVQ+PEVuY291bnRlcj48RmFjaWxpdHlJRD5NRjUxNTU8L0ZhY2lsaXR5SUQ+PFR5cGU+NTwvVHlwZT48UGF0aWVudElEPjE3MjY8L1BhdGllbnRJRD48RWxpZ2liaWxpdHlJRFBheWVyPkFCQzI1MDE8L0VsaWdpYmlsaXR5SURQYXllcj48U3RhcnQ+MDgvMDEvMjAyNiAxMjo1ODwvU3RhcnQ+PEVuZD4xMi8wMS8yMDI2IDEyOjU4PC9FbmQ+PFN0YXJ0VHlwZT4xPC9TdGFydFR5cGU+PEVuZFR5cGU+MTwvRW5kVHlwZT48L0VuY291bnRlcj48RGlhZ25vc2lzPjxUeXBlPlByaW5jaXBhbDwvVHlwZT48Q29kZT4xOTUuNDwvQ29kZT48L0RpYWdub3Npcz48QWN0aXZpdHk+PElEPkFDVElWSVRZOTM0NjwvSUQ+PFN0YXJ0PjIzLzAxLzIwMDkgMDI6Mzc8L1N0YXJ0PjxUeXBlPjM8L1R5cGU+PENvZGU+OTk8L0NvZGU+PFF1YW50aXR5PjQ8L1F1YW50aXR5PjxOZXQ+MTM5NTwvTmV0PjxWQVQ+MjguMDE8L1ZBVD48RGF0ZU9yZGVyZWQ+MDEvMDQvMjAwOSAxNjowMTwvRGF0ZU9yZGVyZWQ+PC9BY3Rpdml0eT48L0NsYWltPjwvQ2xhaW0uU3VibWlzc2lvbj4=&lt;/fileContent&gt;
+      &lt;fileName/&gt;
+    &lt;/UploadTransaction&gt;
+  &lt;/soap12:Body&gt;
+&lt;/soap12:Envelope&gt;    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>SOAPAction: https://www.shafafiya.org/v2/UploadTransaction</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: text/xml; charset=utf-8</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://afthibasvr001.internal.npsff.ae/csp/inbound/HIB.Inbound.BSUploadSOAP.cls&#39; -H &#39;SOAPAction: https://www.shafafiya.org/v2/UploadTransaction&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: text/xml; charset=utf-8&#39; -d &#39;&lt;soap12:Envelope xmlns:soap12=&quot;http://www.w3.org/2003/05/soap-envelope&quot;&gt;
+  &lt;soap12:Body&gt;
+    &lt;UploadTransaction xmlns=&quot;https://www.shafafiya.org/v2/&quot;&gt;
+      &lt;login&gt;MalaffiPayertest&lt;/login&gt;
+      &lt;pwd&gt;Haad@2016&lt;/pwd&gt;
+      &lt;fileContent&gt;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PENsYWltLlN1Ym1pc3Npb24geG1sbnM6dG5zPSJodHRwOi8vd3d3LmhhYWQuYWUvRGF0YURpY3Rpb25hcnkvQ29tbW9uVHlwZXMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpub05hbWVzcGFjZVNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LmhhYWQuYWUvRGF0YURpY3Rpb25hcnkvQ29tbW9uVHlwZXMvQ2xhaW1TdWJtaXNzaW9uLnhzZCI+PEhlYWRlcj48U2VuZGVySUQ+TUY4MDUxPC9TZW5kZXJJRD48UmVjZWl2ZXJJRD5BODc3PC9SZWNlaXZlcklEPjxUcmFuc2FjdGlvbkRhdGU+MDkvMDMvMjAyNiAxMjo1NDwvVHJhbnNhY3Rpb25EYXRlPjxSZWNvcmRDb3VudD4xPC9SZWNvcmRDb3VudD48RGlzcG9zaXRpb25GbGFnPlBURV9TVUJNSVQ8L0Rpc3Bvc2l0aW9uRmxhZz48L0hlYWRlcj48Q2xhaW0+PElEPjQ0NDwvSUQ+PElEUGF5ZXI+OTcxOTA8L0lEUGF5ZXI+PE1lbWJlcklEPm04MjM2NjwvTWVtYmVySUQ+PFBheWVySUQ+QTM2NzwvUGF5ZXJJRD48UHJvdmlkZXJJRD5NRjg2OTI8L1Byb3ZpZGVySUQ+PEVtaXJhdGVzSUROdW1iZXI+MTExLTExMTEtMTExMTExMS0xPC9FbWlyYXRlc0lETnVtYmVyPjxHcm9zcz45MzYxPC9Hcm9zcz48UGF0aWVudFNoYXJlPjE2MjM8L1BhdGllbnRTaGFyZT48TmV0PjEzOTU8L05ldD48VkFUPjkxLjA5PC9WQVQ+PEVuY291bnRlcj48RmFjaWxpdHlJRD5NRjUxNTU8L0ZhY2lsaXR5SUQ+PFR5cGU+NTwvVHlwZT48UGF0aWVudElEPjE3MjY8L1BhdGllbnRJRD48RWxpZ2liaWxpdHlJRFBheWVyPkFCQzI1MDE8L0VsaWdpYmlsaXR5SURQYXllcj48U3RhcnQ+MDgvMDEvMjAyNiAxMjo1ODwvU3RhcnQ+PEVuZD4xMi8wMS8yMDI2IDEyOjU4PC9FbmQ+PFN0YXJ0VHlwZT4xPC9TdGFydFR5cGU+PEVuZFR5cGU+MTwvRW5kVHlwZT48L0VuY291bnRlcj48RGlhZ25vc2lzPjxUeXBlPlByaW5jaXBhbDwvVHlwZT48Q29kZT4xOTUuNDwvQ29kZT48L0RpYWdub3Npcz48QWN0aXZpdHk+PElEPkFDVElWSVRZOTM0NjwvSUQ+PFN0YXJ0PjIzLzAxLzIwMDkgMDI6Mzc8L1N0YXJ0PjxUeXBlPjM8L1R5cGU+PENvZGU+OTk8L0NvZGU+PFF1YW50aXR5PjQ8L1F1YW50aXR5PjxOZXQ+MTM5NTwvTmV0PjxWQVQ+MjguMDE8L1ZBVD48RGF0ZU9yZGVyZWQ+MDEvMDQvMjAwOSAxNjowMTwvRGF0ZU9yZGVyZWQ+PC9BY3Rpdml0eT48L0NsYWltPjwvQ2xhaW0uU3VibWlzc2lvbj4=&lt;/fileContent&gt;
+      &lt;fileName/&gt;
+    &lt;/UploadTransaction&gt;
+  &lt;/soap12:Body&gt;
+&lt;/soap12:Envelope&gt;&#39;
+</div>

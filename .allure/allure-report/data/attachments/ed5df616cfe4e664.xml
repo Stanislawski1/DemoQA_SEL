@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://www.w3.org/2003/05/soap-envelope' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:s='http://www.w3.org/2001/XMLSchema'>
+  <SOAP-ENV:Body><UploadTransactionResponse xmlns="https://www.shafafiya.org/v2/"><UploadTransactionResult>-2</UploadTransactionResult><errorMessage>E-claim transaction validation is failed with errors</errorMessage>Transaction,Type,RuleID,Object Name,HAAD Field,Field Value,Additional Reference,Error Text
+ClaimSubmission,ERROR,292_1,Claim,ID,2937263677,Field Claim.ID value is 2937263677,"In an internal complaint resubmission, Claim.ID must be the same as in the previous claim submission."
+ClaimSubmission,ERROR,92,Transaction,Header,,,Sender ID 'TF001_Malaffi' is not in the allowed senders list for this e-claim transaction.
+ClaimSubmission,ERROR,201,Activity,ID,4896922346,Field Claim.ID value is 2937263677,"Resubmitted Claim is 'internal complaint' type resubmission and must have same Activity.ID as original Claim, however Activity.ID 4896922346 is different from resubmitted Claim and original Claim."
+ClaimSubmission,ERROR,292_1,Claim,ID,2937263677,,Not found
+ClaimSubmission,ERROR,112,Claim,ID,,Claim.Submission cannot be matched with remittance using Claim ID 2937263677 and Sender ID TF001_Malaffi.Reason: Combination of Claim ID and IDPayer is not present in any Remittance advice with Sender as TF001_Malaffi.,
+ClaimSubmission,ERROR,295,Header,SenderID,TF001_Malaffi,,Should not be same as ReceiverID 'TF001_Malaffi'.
+</UploadTransactionResponse></SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

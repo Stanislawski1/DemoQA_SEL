@@ -1,0 +1,39 @@
+<div>POST to https://afthibasvr001.internal.npsff.ae/csp/inbound/HIB.Inbound.BSUploadSOAP.cls</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+&lt;soap12:Envelope xmlns:soap12=&quot;http://www.w3.org/2003/05/soap-envelope&quot;&gt;
+  &lt;soap12:Body&gt;
+    &lt;UploadTransaction xmlns=&quot;https://www.shafafiya.org/v2/&quot;&gt;
+      &lt;login&gt;MalaffiPayertest&lt;/login&gt;
+      &lt;pwd&gt;Haad@2016&lt;/pwd&gt;
+      &lt;fileContent/&gt;
+      &lt;fileName&gt;TC_FC_003.xml&lt;/fileName&gt;
+    &lt;/UploadTransaction&gt;
+  &lt;/soap12:Body&gt;
+&lt;/soap12:Envelope&gt;    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>SOAPAction: https://www.shafafiya.org/v2/UploadTransaction</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: text/xml; charset=utf-8</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://afthibasvr001.internal.npsff.ae/csp/inbound/HIB.Inbound.BSUploadSOAP.cls&#39; -H &#39;SOAPAction: https://www.shafafiya.org/v2/UploadTransaction&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: text/xml; charset=utf-8&#39; -d &#39;&lt;soap12:Envelope xmlns:soap12=&quot;http://www.w3.org/2003/05/soap-envelope&quot;&gt;
+  &lt;soap12:Body&gt;
+    &lt;UploadTransaction xmlns=&quot;https://www.shafafiya.org/v2/&quot;&gt;
+      &lt;login&gt;MalaffiPayertest&lt;/login&gt;
+      &lt;pwd&gt;Haad@2016&lt;/pwd&gt;
+      &lt;fileContent/&gt;
+      &lt;fileName&gt;TC_FC_003.xml&lt;/fileName&gt;
+    &lt;/UploadTransaction&gt;
+  &lt;/soap12:Body&gt;
+&lt;/soap12:Envelope&gt;&#39;
+</div>
