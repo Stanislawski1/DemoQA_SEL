@@ -23,9 +23,11 @@ public class DriverSingleton {
 
     public static WebDriver getDriver(String browser) {
         if (driver == null) {
-            String gridUrl = PropertyConfig.getGridUrl();
+            // Сначала проверяем системную переменную (из командной строки -Dgrid.url)
+            // Если её нет, берем из конфига
+            String gridUrl = System.getProperty("grid.url", PropertyConfig.getGridUrl());
 
-            if (gridUrl != null && !gridUrl.isEmpty()) {
+            if (gridUrl != null && !gridUrl.isEmpty() && !gridUrl.equals("null")) {
                 driver = createRemoteDriver(browser, gridUrl);
             } else {
                 driver = createLocalDriver(browser);
@@ -57,13 +59,15 @@ public class DriverSingleton {
     private static WebDriver createRemoteDriver(String browser, String gridUrl) {
         try {
             URL url = new URL(gridUrl);
-            switch (browser.toLowerCase()) {
-                case "chrome":
-                    return new RemoteWebDriver(url, new ChromeOptions());
-                case "firefox":
-                    return new RemoteWebDriver(url, new FirefoxOptions());
-                default:
-                    return new RemoteWebDriver(url, new ChromeOptions());
+            if (browser.toLowerCase().equals("chrome")) {
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless"); // Обязательно для CI
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                return new RemoteWebDriver(url, options);
+            } else {
+                // Для остальных браузеров (если нужно)
+                return new RemoteWebDriver(url, new ChromeOptions());
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException("Error with Selenium Grid URL: " + gridUrl, e);

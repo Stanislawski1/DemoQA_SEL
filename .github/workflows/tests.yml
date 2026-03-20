@@ -11,7 +11,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    # Запускаем браузер прямо в облаке GitHub
+    # Поднимаем браузер прямо в облаке
     services:
       selenium:
         image: selenium/standalone-chrome:latest
@@ -30,12 +30,12 @@ jobs:
           cache: maven
 
       - name: Run API Tests
-        # -DreuseForks=false решает проблему с 'Corrupted channel'
+        # Используем полный путь к сьюту, который мы нашли в проекте
         run: mvn test -DsuiteXmlFile=src/test/resources/suites/api.xml -DreuseForks=false
-        continue-on-error: true # Чтобы UI тесты запустились, даже если API упали
+        continue-on-error: true # Чтобы UI тесты запустились, если API упадут
 
       - name: Run UI Tests
-        # Передаем адрес внутреннего Selenium Grid (localhost:4444)
+        # ПЕРЕДАЕМ АДРЕС ВНУТРЕННЕГО ГРИДА (localhost:4444)
         run: mvn test -DsuiteXmlFile=src/test/resources/suites/ui.xml -Dgrid.url=http://localhost:4444 -DreuseForks=false
         continue-on-error: true
 
