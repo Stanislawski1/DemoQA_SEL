@@ -11,7 +11,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    # Поднимаем браузер прямо в облаке
+    # Поднимаем браузер для UI-тестов
     services:
       selenium:
         image: selenium/standalone-chrome:latest
@@ -30,14 +30,21 @@ jobs:
           cache: maven
 
       - name: Run API Tests
-        # Используем полный путь к сьюту, который мы нашли в проекте
+        # Путь к сьюту из твоей структуры проекта
         run: mvn test -DsuiteXmlFile=src/test/resources/suites/api.xml -DreuseForks=false
-        continue-on-error: true # Чтобы UI тесты запустились, если API упадут
+        continue-on-error: true
 
       - name: Run UI Tests
-        # ПЕРЕДАЕМ АДРЕС ВНУТРЕННЕГО ГРИДА (localhost:4444)
+        # Передаем адрес грида, чтобы DriverSingleton его подхватил
         run: mvn test -DsuiteXmlFile=src/test/resources/suites/ui.xml -Dgrid.url=http://localhost:4444 -DreuseForks=false
         continue-on-error: true
+
+      # Шаг отладки: проверяем, создал ли Allure json-файлы в облаке
+      - name: Check Allure Results existence
+        if: always()
+        run: |
+          echo "Listing target/allure-results content:"
+          ls -l target/allure-results || echo "DIRECTORY NOT FOUND"
 
       - name: Get Allure history
         uses: actions/checkout@v4
