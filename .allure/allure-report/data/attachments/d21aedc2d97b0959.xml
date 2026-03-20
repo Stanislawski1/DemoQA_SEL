@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://www.w3.org/2003/05/soap-envelope' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:s='http://www.w3.org/2001/XMLSchema'>
-  <SOAP-ENV:Body><UploadTransactionResponse xmlns="https://www.shafafiya.org/v2/"><UploadTransactionResult>-2</UploadTransactionResult><errorMessage>E-claim transaction validation is failed with errors</errorMessage>Transaction,Type,RuleID,Object Name,HAAD Field,Field Value,Additional Reference,Error Text
-Schema Validation,ERROR,,Schema Validation,,,,Schema Validation error: value 'update' is not a valid enumeration value for element in namespace http://www.haad.ae/DataDictionary/CommonTypes
-</UploadTransactionResponse></SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
