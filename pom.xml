@@ -23,6 +23,7 @@
         <log4j-api.version>2.20.0</log4j-api.version>
         <slf4j-simple.version>2.0.9</slf4j-simple.version>
         <allure-maven.version>2.12.0</allure-maven.version>
+        <suiteXmlFile>regression.xml</suiteXmlFile>
     </properties>
 
     <dependencyManagement>
@@ -155,6 +156,11 @@
             <artifactId>log4j-slf4j2-impl</artifactId>
             <version>${log4j-slf4j2-impl.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.20.1</version>
+        </dependency>
 
     </dependencies>
 
@@ -177,6 +183,19 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -185,8 +204,11 @@
                 <configuration>
                     <argLine>
                         -Dfile.encoding=UTF-8
-                        -javaagent:"${log4j-core.version}"
+                        -javaagent:"${org.aspectj:aspectjweaver:jar}"
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
 
