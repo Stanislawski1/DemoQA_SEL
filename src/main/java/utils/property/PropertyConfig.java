@@ -16,7 +16,12 @@ public class PropertyConfig {
     }
 
     private static String getDecodedProperty(String key) {
-        String value = props.getProperty(key);
+        String value = System.getenv(key.replace(".", "_").toUpperCase());
+
+        if (value == null) {
+            value = props.getProperty(key);
+        }
+
         if (value != null && value.startsWith("enc_")) {
             return CryptoUtils.decode(value.substring(4));
         }
