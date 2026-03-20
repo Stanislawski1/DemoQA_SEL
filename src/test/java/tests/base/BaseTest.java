@@ -1,37 +1,45 @@
 package tests.base;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+import core.DriverSingleton;
+import manager.PageManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
+import tests.steps.ElementsSteps;
 import utils.TestListener;
+import utils.property.PropertyConfig;
 
 
-@Listeners(TestListener.class)
-public class BaseTest {
+@Listeners({TestListener.class})
+public abstract class BaseTest {
+
+    Logger logger = LoggerFactory.getLogger(BaseTest.class);
+
     protected WebDriver driver;
+    protected ElementsSteps elementsSteps;
+    protected PageManager pageManager;
 
     @BeforeMethod
-    public void setUp(ITestContext context) {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--window-size=1920,1080");
+    public void setup(@Optional String xmlBrowser, ITestContext context) {
+        String browser = (xmlBrowser != null) ? xmlBrowser : PropertyConfig.getBrowser();
+        if (browser == null) browser = "chrome";
 
-        driver = new ChromeDriver(options);
+        logger.info("Starting tests on browser: {}", browser);
 
+        driver = DriverSingleton.getDriver(browser);
+
+        pageManager = new PageManager(driver);
+        elementsSteps = new ElementsSteps(driver);
         context.setAttribute("driver", driver);
-
-        driver.manage().window().maximize();
     }
 
     @AfterMethod
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        logger.info("Quitting driver after method");
+        DriverSingleton.quitDriver();
     }
 }

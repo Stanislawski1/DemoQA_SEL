@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'TEST_SUITE', choices: ['api', 'ui', 'all'], description: 'Набор тестов')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Компиляция и загрузка зависимостей (включая aspectjweaver)
+                sh 'mvn clean compile -DskipTests'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    def suiteFile = ""
+                    if (params.TEST_SUITE == 'api') suiteFile = "src/test/resources/suites/api.xml"
+                    else if (params.TEST_SUITE == 'ui') suiteFile = "src/test/resources/suites/ui.xml"
+                    else suiteFile = "src/test/resources/suites/all.xml"
+
+                    // Запуск тестов. Maven сам положит результаты в target/allure-results
+                    sh "mvn test -DsuiteXmlFile=${suiteFile}"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Генерация Allure отчета в Jenkins
+            // results: путь к папке, которую сгенерировал maven-surefire-plugin
+            allure includeProperties: false,
+                   jdk: '',
+                   results: [[path: 'target/allure-results']]
+        }
+    }
+}
